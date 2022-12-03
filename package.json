@@ -7,7 +7,7 @@
     "clean": "rimraf ./2022/**/*.js",
     "build": "tsc",
     "lint": "eslint .",
-    "test": "jest"
+    "test": "npm run lint && jest"
   },
   "keywords": [
     "advent-of-code",
