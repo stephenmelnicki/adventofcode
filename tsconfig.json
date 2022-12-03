@@ -1,6 +1,6 @@
 {
   "display": "Configuration for adventofcode typescript challenges",
   "extends": "@tsconfig/recommended/tsconfig.json",
-  "include": ["src/**/*.ts"],
+  "include": ["./**/*.ts"],
   "exclude": ["node_modules"]
 }

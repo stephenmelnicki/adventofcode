@@ -3,6 +3,7 @@
 # Protected or generated
 .git
 .vscode
+.github
 
 # When using npm
 node_modules/*

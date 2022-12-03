@@ -4,13 +4,15 @@
   "description": "Day 1: Calorie Counting",
   "main": "index.js",
   "scripts": {
-    "clean": "rimraf src/**/*.js",
+    "clean": "rimraf ./2022/**/*.js",
     "build": "tsc",
     "lint": "eslint .",
     "test": "jest"
   },
   "keywords": [
-    "adventofcode",
+    "advent-of-code",
+    "advent-of-code-2022",
+    "advent-of-code-2022-typescript",
     "typescript"
   ],
   "author": "Stephen Melnicki <stephen@stephenmelnicki.com>",
