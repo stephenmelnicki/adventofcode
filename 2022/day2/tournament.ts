@@ -26,18 +26,6 @@ const playerMap = new Map<string, Shape>([
   ["Z", Shape.Scissors],
 ]);
 
-const outcomeMap = new Map<string, Outcome>([
-  [`${Shape.Rock},${Shape.Rock}`, Outcome.Draw],
-  [`${Shape.Rock},${Shape.Paper}`, Outcome.Win],
-  [`${Shape.Rock},${Shape.Scissors}`, Outcome.Loss],
-  [`${Shape.Paper},${Shape.Rock}`, Outcome.Loss],
-  [`${Shape.Paper},${Shape.Paper}`, Outcome.Draw],
-  [`${Shape.Paper},${Shape.Scissors}`, Outcome.Win],
-  [`${Shape.Scissors},${Shape.Rock}`, Outcome.Win],
-  [`${Shape.Scissors},${Shape.Paper}`, Outcome.Loss],
-  [`${Shape.Scissors},${Shape.Scissors}`, Outcome.Draw],
-]);
-
 export function rounds(input: string): Round[] {
   return input
     .split("\n")
@@ -55,9 +43,21 @@ export function rounds(input: string): Round[] {
     });
 }
 
+const outcomeMap = new Map<string, Outcome>([
+  [`${Shape.Rock},${Shape.Rock}`, Outcome.Draw],
+  [`${Shape.Rock},${Shape.Paper}`, Outcome.Win],
+  [`${Shape.Rock},${Shape.Scissors}`, Outcome.Loss],
+  [`${Shape.Paper},${Shape.Rock}`, Outcome.Loss],
+  [`${Shape.Paper},${Shape.Paper}`, Outcome.Draw],
+  [`${Shape.Paper},${Shape.Scissors}`, Outcome.Win],
+  [`${Shape.Scissors},${Shape.Rock}`, Outcome.Win],
+  [`${Shape.Scissors},${Shape.Paper}`, Outcome.Loss],
+  [`${Shape.Scissors},${Shape.Scissors}`, Outcome.Draw],
+]);
+
 export function results(rounds: Round[]): Result[] {
   return rounds.map((round) => {
-    const outcome = outcomeMap.get(round.join(","));
+    const outcome = outcomeMap.get(round.toString());
 
     if (outcome === undefined) {
       throw new Error(`Invalid round. ${round}`);
@@ -79,18 +79,6 @@ const desiredOutcomeMap = new Map<string, Outcome>([
   ["Z", Outcome.Win],
 ]);
 
-const shapeMap = new Map<string, Shape>([
-  [`${Shape.Rock},${Outcome.Loss}`, Shape.Scissors],
-  [`${Shape.Rock},${Outcome.Draw}`, Shape.Rock],
-  [`${Shape.Rock},${Outcome.Win}`, Shape.Paper],
-  [`${Shape.Paper},${Outcome.Loss}`, Shape.Rock],
-  [`${Shape.Paper},${Outcome.Draw}`, Shape.Paper],
-  [`${Shape.Paper},${Outcome.Win}`, Shape.Scissors],
-  [`${Shape.Scissors},${Outcome.Loss}`, Shape.Paper],
-  [`${Shape.Scissors},${Outcome.Draw}`, Shape.Scissors],
-  [`${Shape.Scissors},${Outcome.Win}`, Shape.Rock],
-]);
-
 export function decrypt(input: string): Result[] {
   return input
     .split("\n")
@@ -108,9 +96,21 @@ export function decrypt(input: string): Result[] {
     });
 }
 
-export function shapes(results: Result[]): Result[] {
+const shapeMap = new Map<string, Shape>([
+  [`${Shape.Rock},${Outcome.Loss}`, Shape.Scissors],
+  [`${Shape.Rock},${Outcome.Draw}`, Shape.Rock],
+  [`${Shape.Rock},${Outcome.Win}`, Shape.Paper],
+  [`${Shape.Paper},${Outcome.Loss}`, Shape.Rock],
+  [`${Shape.Paper},${Outcome.Draw}`, Shape.Paper],
+  [`${Shape.Paper},${Outcome.Win}`, Shape.Scissors],
+  [`${Shape.Scissors},${Outcome.Loss}`, Shape.Paper],
+  [`${Shape.Scissors},${Outcome.Draw}`, Shape.Scissors],
+  [`${Shape.Scissors},${Outcome.Win}`, Shape.Rock],
+]);
+
+export function chooseShapes(results: Result[]): Result[] {
   return results.map((result) => {
-    const shape = shapeMap.get(result.join(","));
+    const shape = shapeMap.get(result.toString());
 
     if (shape === undefined) {
       throw new Error(`Invalid result. ${result}`);

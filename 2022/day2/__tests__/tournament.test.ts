@@ -10,13 +10,12 @@ import {
   results,
   score,
   decrypt,
-  shapes,
+  chooseShapes,
 } from "../tournament";
 
-const input = fs.readFileSync(
-  path.join(__dirname, "../__fixtures__/guide.txt"),
-  { encoding: "utf8" }
-);
+const input = fs.readFileSync(path.join(__dirname, "./guide.txt"), {
+  encoding: "utf8",
+});
 
 test("rounds", () => {
   const result = rounds(input);
@@ -58,8 +57,8 @@ test("decrypt", () => {
   expect(result).toEqual(expected);
 });
 
-test("shapes", () => {
-  const result = shapes(decrypt(input));
+test("chooseShapes", () => {
+  const result = chooseShapes(decrypt(input));
   const expected: Result[] = [
     [Shape.Rock, Outcome.Draw],
     [Shape.Rock, Outcome.Loss],
