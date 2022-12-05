@@ -8,7 +8,7 @@ function main(): void {
     encoding: "utf8",
   });
 
-  console.log("--- Day 3: Rucksack Reorganization ---");
+  console.log("--- Day 3: Rucksack Reorganization ---\n");
 
   const total = totalScore(rucksacks(input));
   console.log(`Priorities total: ${total}`);
