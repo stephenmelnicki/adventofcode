@@ -16,7 +16,7 @@ jobs:
         deno: [canary]
         os:
           - ${{ github.repository_owner == 'stephenmelnicki' && 'ubuntu-22.04' }}
-          - windows-2022
+          - windows-latest
           - macOS-latest
 
     steps:
