@@ -3,7 +3,7 @@ import { dirname } from "std/path/mod.ts";
 
 const BASE_URL = "https://adventofcode.com";
 const CACHE_DIR = "./.cache";
-const SESSION_ID = Deno.env.get("SESSION_ID");
+const AOC_SESSION_ID = Deno.env.get("AOC_SESSION_ID");
 
 async function fetchFromCache(year: number, day: number): Promise<string> {
   const filepath = `${CACHE_DIR}/${year}/day/${day}/input`;
@@ -24,7 +24,7 @@ async function cacheResponse(response: Response): Promise<void> {
 async function fetchFromUpstream(year: number, day: number): Promise<string> {
   const url = `${BASE_URL}/${year}/day/${day}/input`;
   const headers = new Headers();
-  headers.append("Cookie", `session=${SESSION_ID}`);
+  headers.append("Cookie", `session=${AOC_SESSION_ID}`);
 
   const response = await fetch(url, { headers });
   await cacheResponse(response);
