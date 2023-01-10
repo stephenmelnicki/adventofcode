@@ -53,9 +53,6 @@ export function partialOverlap(pairs: Pair[]): Pair[] {
 
     return false;
   });
-
-  // TODO: Implement
-  return pairs;
 }
 
 export function count(pairs: Pair[]): number {

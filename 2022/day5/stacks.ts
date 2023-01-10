@@ -30,10 +30,9 @@ export function instructions(input: string): Instruction[] {
     .slice(0, -1) // trim last empty new line
     .map((line) => {
       const count = Number(line.slice(4, line.indexOf("from")).trim());
-      const source =
-        Number(
-          line.slice(line.indexOf("from") + 4, line.indexOf("to")).trim()
-        ) - 1;
+      const source = Number(
+        line.slice(line.indexOf("from") + 4, line.indexOf("to")).trim(),
+      ) - 1;
       const target = Number(line.slice(line.indexOf("to") + 2).trim()) - 1;
 
       return [count, source, target] as Instruction;
@@ -42,7 +41,7 @@ export function instructions(input: string): Instruction[] {
 
 export function rearrange(
   stacks: Stack[],
-  instructions: Instruction[]
+  instructions: Instruction[],
 ): Stack[] {
   instructions.forEach((instruction) => {
     const [count, source, target] = instruction;
@@ -61,7 +60,7 @@ export function rearrange(
 
 export function rearrangeImproved(
   stacks: Stack[],
-  instructions: Instruction[]
+  instructions: Instruction[],
 ): Stack[] {
   instructions.forEach((instruction) => {
     const [count, source, target] = instruction;

@@ -1,5 +1,5 @@
-.npm
-node_modules/
-npm-debug.log
-
-2022/**/*.js
+.DS_Store
+.env
+.cache
+**/cov
+deno.lock

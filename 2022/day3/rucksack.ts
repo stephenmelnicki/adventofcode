@@ -51,8 +51,8 @@ export class Group {
     return this.rucksacks.slice(0, 1).reduce((_, rucksack) => {
       return rucksack.contents.split("").reduce((shared, item) => {
         return this.rucksacks
-          .slice(1)
-          .every((ruck) => ruck.contents.includes(item))
+            .slice(1)
+            .every((ruck) => ruck.contents.includes(item))
           ? item
           : shared;
       }, undefined as string | undefined);

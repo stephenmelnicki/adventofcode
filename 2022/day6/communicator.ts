@@ -1,6 +1,6 @@
 export function isUnique(sequence: string[]): boolean {
   return sequence.every(
-    (char, index, array) => !array.slice(index + 1).includes(char)
+    (char, index, array) => !array.slice(index + 1).includes(char),
   );
 }
 

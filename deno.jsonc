@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "noImplicitOverride": true
+  },
+  "fmt": {
+    "files": {
+      "exclude": [
+        ".git",
+        "cov"
+      ]
+    }
+  },
+  "importMap": "./import_map.json",
+  "lint": {
+    "files": {
+      "exclude": [
+        ".git",
+        "cov"
+      ]
+    },
+    "rules": {
+      "exclude": [
+        "import-prefix-missing"
+      ]
+    }
+  },
+  "tasks": {
+    "test": "deno test --doc --unstable --allow-all --coverage=./cov"
+  }
+}
