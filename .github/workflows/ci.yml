@@ -15,7 +15,7 @@ jobs:
       matrix:
         deno: [canary]
         os:
-          - ${{ github.repository_owner == 'stephenmelnicki' && 'ubuntu-20.04-xl' || 'ubuntu-22.04' }}
+          - ${{ github.repository_owner == 'stephenmelnicki' && 'ubuntu-22.04' }}
           - windows-2022
           - macOS-latest
 
@@ -54,7 +54,7 @@ jobs:
           rm cov.lcov
 
   lint:
-    runs-on: ${{ github.repository_owner == 'stephenmelnicki' && 'ubuntu-20.04-xl' || 'ubuntu-22.04' }}
+    runs-on: ${{ github.repository_owner == 'stephenmelnicki' && 'ubuntu-22.04' }}
     steps:
       - name: Clone repository
         uses: actions/checkout@v3
