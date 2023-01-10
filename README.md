@@ -1,23 +1,29 @@
 # Advent of Code
 
-My typescript solutions to the Advent of Code challenges.
+[![codecov](https://codecov.io/gh/stephenmelnicki/adventofcode/branch/main/graph/badge.svg?token=JFSHAY5JAC)](https://codecov.io/gh/stephenmelnicki/adventofcode)
+
+My TypeScript solutions to the Advent of Code puzzles.
 
 Enjoy!
 
-## Dependencies
+## Quickstart
 
-This project was written using using the latest version of
-[deno](https://deno.land/manual@v1.29.2/getting_started/installation).
+Install [deno](https://deno.land/manual@v1.29.2/getting_started/installation).
 
-## Running
-
-Each day's answers are logged to the console. To get a desired day's answers,
-run the typescript compiler (if you haven't already) and then run node on the
-generated output.
-
-For example, to get the first day's solutions for 2022:
+Grab your session cookie after logging in to Advent of Code and save it to the
+`.env` file. You can find the session id using your broswer's inspector.
 
 ```
-npm build
-node 2022/day1
+AOC_SESSION_ID=keyboard_cat # replace with session id
+```
+
+After that, pick a year and day and run the corresponding solution. It will
+print the answers to the console.
+
+For example, to run the first day's solution (NOTE: the permissions are required
+as the solution will attempt to download the puzzle input if it hasn't already
+been cached):
+
+```bash
+deno run --allow-read --allow-write --allow-env --allow-net=adventofcode.com .\2022\day1\mod.ts
 ```
